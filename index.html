@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FHERSHO - Todavía Te Extraño | Artista Music</title>
+  <style>
+    :root {
+      --gold-primary: #d4af37;
+      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 35%, #b38728 70%, #fbf5b7 100%);
+      --bg-dark: #0a0a0e;
+      --card-bg: rgba(18, 18, 24, 0.94);
+      --border-gold: rgba(212, 175, 55, 0.45);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(0, 0, 0, 0.95) 0%, #050508 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 14px 40px;
+      color: #eaeaea;
+    }
+    .container { width: 100%; max-width: 420px; text-align: center; }
+    .cover-frame {
+      width: 100%;
+      border-radius: 18px;
+      border: 1.5px solid var(--border-gold);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: #000;
+    }
+    .cover-frame img { width: 100%; height: auto; display: block; }
+    .badge-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
+    .badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #ccc;
+    }
+    .badge-highlight {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.08);
+      margin-bottom: 14px;
+    }
+    .song-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    .artist-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 22px;
+    }
+    .download-row { display: flex; gap: 12px; margin-bottom: 22px; }
+    .btn-download {
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.15s ease;
+    }
+    .btn-download:active { transform: scale(0.97); }
+    .btn-mp3 { background: #ffffff; color: #111; }
+    .btn-wav { background: var(--gold-gradient); color: #111; }
+    .player-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-gold);
+      margin: 0 auto 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+      transition: all 0.2s ease;
+    }
+    .player-circle:hover { background: rgba(212, 175, 55, 0.2); }
+    .player-circle svg { width: 28px; height: 28px; fill: #ffffff; margin-left: 3px; }
+    .contact-card {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      padding: 30px 20px 22px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.15);
+    }
+    .contact-ribbon {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold-gradient);
+      color: #111;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      padding: 5px 18px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .contact-role { font-size: 0.78rem; font-weight: 800; letter-spacing: 2px; color: var(--gold-primary); text-transform: uppercase; margin-bottom: 4px; }
+    .contact-name { font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 14px; }
+    .contact-item { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem; color: #d1d1d6; margin-bottom: 10px; text-decoration: none; }
+    .btn-save-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px;
+      margin-top: 14px;
+      border-radius: 10px;
+      background: var(--gold-gradient);
+      color: #111;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .footer-text { font-size: 0.72rem; color: #55555c; margin-top: 24px; letter-spacing: 0.8px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="cover-frame">
+    <img id="coverArtwork" src="file_0000000010e881f7bd23af03a4055920.png" alt="FHERSHO">
+  </div>
+
+  <div class="badge-row">
+    <span class="badge">2026</span>
+    <span class="badge">ARTISTA MUSIC</span>
+  </div>
+  <div class="badge badge-highlight">NEW RELEASE</div>
+
+  <div class="song-title">TODAVÍA TE EXTRAÑO</div>
+  <div class="artist-title">FHERSHO</div>
+
+  <div class="download-row">
+    <a href="Todavia%20Te%20Extra%C3%B1o!.mp3" download="FHERSHO_Todavia_Te_Extrano.mp3" class="btn-download btn-mp3">▼ Download MP3</a>
+    <a href="Todavia%20Te%20Extra%C3%B1o!.mp3" download="FHERSHO_Todavia_Te_Extrano.mp3" class="btn-download btn-wav">▼ Play Track</a>
+  </div>
+
+  <div class="player-circle" onclick="toggleAudio()">
+    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </div>
+  <audio id="releaseAudio" src="Todavia%20Te%20Extra%C3%B1o!.mp3"></audio>
+
+  <div class="contact-card">
+    <div class="contact-ribbon">BOOKING &amp; MANAGEMENT ☎</div>
+    <div class="contact-role">MANAGEMENT / A&amp;R</div>
+    <div class="contact-name">Fernando Sánchez Flores</div>
+    <a href="tel:2103850515" class="contact-item"><span>🇺🇸</span><span>(210) 385-0515</span></a>
+    <a href="mailto:fersan17@gmail.com" class="contact-item"><span>✉️</span><span>fersan17@gmail.com</span></a>
+    <a href="#" class="btn-save-contact" onclick="saveContact(); return false;">💾 SAVE TO CONTACTS</a>
+  </div>
+
+  <div class="footer-text">Powered by: Artista Music | 2026</div>
+</div>
+
+<script>
+  const audio = document.getElementById('releaseAudio');
+  const playIcon = document.getElementById('playIcon');
+  function toggleAudio() {
+    if (!audio.src || audio.src.endsWith('#')) return;
+    if (audio.paused) {
+      audio.play();
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    } else {
+      audio.pause();
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    }
+  }
+
+  const vcardData = `BEGIN:VCARD\nVERSION:3.0\nN:Sánchez Flores;Fernando;;;\nFN:Fernando Sánchez Flores\nORG:Artista Music LLC\nTITLE:Management - FHERSHO\nTEL;TYPE=CELL,VOICE:(210) 385-0515\nEMAIL;TYPE=PREF,INTERNET:fersan17@gmail.com\nADR;TYPE=WORK:;;3106 West Ave;San Antonio;TX;78213;USA\nEND:VCARD`;
+
+  function saveContact() {
+    const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.setAttribute("download", "FHERSHO_Booking.vcf");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(saveContact, 800);
+  });
+</script>
+</body>
+</html>
