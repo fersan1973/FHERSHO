@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FHERSHO - Todavía Te Extraño | Artista Music</title>
+  <title>FHERSHO - Bastó Solo Una Mirada | Artista Music</title>
   <style>
     :root {
       --gold-primary: #d4af37;
@@ -56,7 +57,7 @@
       margin-bottom: 14px;
     }
     .song-title {
-      font-size: 1.85rem;
+      font-size: 1.7rem;
       font-weight: 900;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -156,7 +157,7 @@
 <body>
 <div class="container">
   <div class="cover-frame">
-    <img id="coverArtwork" src="file_0000000010e881f7bd23af03a4055920.png" alt="FHERSHO">
+    <img id="coverArtwork" src="BASTO%20SOLO%20UN%20MIRADA%20.png" alt="FHERSHO - Bastó Solo Una Mirada">
   </div>
 
   <div class="badge-row">
@@ -165,62 +166,8 @@
   </div>
   <div class="badge badge-highlight">NEW RELEASE</div>
 
-  <div class="song-title">TODAVÍA TE EXTRAÑO</div>
+  <div class="song-title">BASTÓ SOLO UNA MIRADA</div>
   <div class="artist-title">FHERSHO</div>
 
   <div class="download-row">
-    <a href="Todavia%20Te%20Extra%C3%B1o!.mp3" download="FHERSHO_Todavia_Te_Extrano.mp3" class="btn-download btn-mp3">▼ Download MP3</a>
-    <a href="Todavia%20Te%20Extra%C3%B1o!.mp3" download="FHERSHO_Todavia_Te_Extrano.mp3" class="btn-download btn-wav">▼ Play Track</a>
-  </div>
-
-  <div class="player-circle" onclick="toggleAudio()">
-    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-  </div>
-  <audio id="releaseAudio" src="Todavia%20Te%20Extra%C3%B1o!.mp3"></audio>
-
-  <div class="contact-card">
-    <div class="contact-ribbon">BOOKING &amp; MANAGEMENT ☎</div>
-    <div class="contact-role">MANAGEMENT / A&amp;R</div>
-    <div class="contact-name">Fernando Sánchez Flores</div>
-    <a href="tel:2103850515" class="contact-item"><span>🇺🇸</span><span>(210) 385-0515</span></a>
-    <a href="mailto:fersan17@gmail.com" class="contact-item"><span>✉️</span><span>fersan17@gmail.com</span></a>
-    <a href="#" class="btn-save-contact" onclick="saveContact(); return false;">💾 SAVE TO CONTACTS</a>
-  </div>
-
-  <div class="footer-text">Powered by: Artista Music | 2026</div>
-</div>
-
-<script>
-  const audio = document.getElementById('releaseAudio');
-  const playIcon = document.getElementById('playIcon');
-  function toggleAudio() {
-    if (!audio.src || audio.src.endsWith('#')) return;
-    if (audio.paused) {
-      audio.play();
-      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-    } else {
-      audio.pause();
-      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
-    }
-  }
-
-  const vcardData = `BEGIN:VCARD\nVERSION:3.0\nN:Sánchez Flores;Fernando;;;\nFN:Fernando Sánchez Flores\nORG:Artista Music LLC\nTITLE:Management - FHERSHO\nTEL;TYPE=CELL,VOICE:(210) 385-0515\nEMAIL;TYPE=PREF,INTERNET:fersan17@gmail.com\nADR;TYPE=WORK:;;3106 West Ave;San Antonio;TX;78213;USA\nEND:VCARD`;
-
-  function saveContact() {
-    const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.setAttribute("download", "FHERSHO_Booking.vcf");
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(saveContact, 800);
-  });
-</script>
-</body>
-</html>
+    <a href="Me
